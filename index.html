@@ -124,6 +124,18 @@
     <p class="text-gray-600">© 2025 North Country Hospital • Epic Implementation Dashboard • PMO@nchvt.org</p>
   </div>
 
- 
+  <script>
+    const goLiveDate = new Date("2027-02-03");
+    function updateDaysRemaining() {
+      const today = new Date();
+      const diffTime = goLiveDate - today;
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      const daysText = diffDays > 0 ? diffDays : "Go-Live today!";
+      document.getElementById("daysRemaining").textContent = daysText;
+      document.getElementById("daysRemainingKPI").textContent = daysText;
+    }
+    updateDaysRemaining();
+    setInterval(updateDaysRemaining, 24 * 60 * 60 * 1000);
+  </script>
 </body>
 </html>
